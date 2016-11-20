@@ -87,6 +87,8 @@ module Jekyll
         end
       }
 
+
+
       # Prepare ppi variables
       ppi = if instance['ppi'] then instance.delete('ppi').sort.reverse else nil end
       # this might work??? ppi = instance.delete('ppi'){ |ppi|  [nil] }.sort.reverse
@@ -158,7 +160,7 @@ module Jekyll
 
         # Note: we can't indent html output because markdown parsers will turn 4 spaces into code blocks
         # Note: Added backslash+space escapes to bypass markdown parsing of indented code below -WD
-        picture_tag = "<picture>\n"\
+        picture_tag = "<picture class='column is-#{html_attr['size']}'>\n"\
                       "#{source_tags}"\
                       "#{markdown_escape * 4}<img src=\"#{url}#{instance['source_default'][:generated_src]}\" #{html_attr_string}>\n"\
                       "#{markdown_escape * 2}</picture>\n"
